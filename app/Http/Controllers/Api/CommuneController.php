@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 
-use App\Models\Region;
+use App\Models\Commune;
 use Illuminate\Http\Request;
 
-class RegionController extends Controller
+class CommuneController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Region::all();
+        return Commune::all();
     }
 
     /**
@@ -33,51 +33,50 @@ class RegionController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $region = Region::create($request->all());
+        $commune = Commune::create($request->all());
 
-        return response()->json($region, 201);
+        return response()->json($commune, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Region $region)
+    public function show(Commune $commune)
     {
-        return Region::find( $region );
+        return Commune::find( $commune );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Region $region)
+    public function edit(Commune $commune)
     {
-        return Region::find( $region );
+        return Commune::find( $commune );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Region $region)
+    public function update(Request $request, Commune $commune)
     {
-        $region->update( $request->all());
+        $commune->update( $request->all());
 
-        return response()->json($region, 200);
+        return response()->json($commune, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Region $region)
+    public function destroy(Commune $commune)
     {
-        //$region = Region::findOrFail($id);
-        $region->delete();
+        $commune->delete();
 
         return response()->json(null, 204);
     }
 
-    public function listProvinces( Region $region )
+    public function listStreets( Commune $commune )
     {
 
-        return response()->json($region->provinces, 200);
+        return response()->json($commune->streets, 200);
     }
 }

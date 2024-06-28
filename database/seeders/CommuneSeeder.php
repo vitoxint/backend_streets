@@ -15,9 +15,9 @@ class CommuneSeeder extends Seeder
     {
         DB::table('communes')->insert(
             [
-                ['name' => 'Arauco', 'provincie_id' => 5],
-                ['name' => 'Los Ángeles', 'provincie_id' => 6],
-                ['name' => 'Concepción', 'provincie_id' => 7],
+                ['name' => 'Arauco', 'province_id' => 5],
+                ['name' => 'Los Ángeles', 'province_id' => 6],
+                ['name' => 'Concepción', 'province_id' => 7],
 
             ]
         );

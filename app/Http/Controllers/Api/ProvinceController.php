@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 
-use App\Models\Region;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
-class RegionController extends Controller
+class ProvinceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Region::all();
+        return Province::all();
     }
 
     /**
@@ -33,51 +33,50 @@ class RegionController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $region = Region::create($request->all());
+        $province = Province::create($request->all());
 
-        return response()->json($region, 201);
+        return response()->json($province, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Region $region)
+    public function show(Province $province)
     {
-        return Region::find( $region );
+        return Province::find( $province );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Region $region)
+    public function edit(Province $province)
     {
-        return Region::find( $region );
+        return Province::find( $province );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Region $region)
+    public function update(Request $request, Province $province)
     {
-        $region->update( $request->all());
+        $province->update( $request->all());
 
-        return response()->json($region, 200);
+        return response()->json($province, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Region $region)
+    public function destroy(Province $province)
     {
-        //$region = Region::findOrFail($id);
-        $region->delete();
+        $province->delete();
 
         return response()->json(null, 204);
     }
 
-    public function listProvinces( Region $region )
+    public function listCommunes( Province $province )
     {
 
-        return response()->json($region->provinces, 200);
+        return response()->json($province->communes, 200);
     }
 }

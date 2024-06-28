@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Provincie;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
-class ProvincieController extends Controller
+class ProvinceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProvincieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Provincie $provincie)
+    public function show(Province $province)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProvincieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Provincie $provincie)
+    public function edit(Province $province)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProvincieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Provincie $provincie)
+    public function update(Request $request, Province $province)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProvincieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Provincie $provincie)
+    public function destroy(Province $province)
     {
         //
     }

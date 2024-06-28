@@ -6,14 +6,14 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use DB;
 
-class ProvincieSeeder extends Seeder
+class ProvinceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('provincies')->insert(
+        DB::table('provinces')->insert(
             [
                 ['name' => 'Curicó', 'region_id' => 7],
                 ['name' => 'Talca', 'region_id' => 7],

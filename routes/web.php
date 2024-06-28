@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+include('api.php');
 
