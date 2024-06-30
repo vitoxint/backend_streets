@@ -26,7 +26,7 @@ Route::resource('/api/regions' , RegionController::class);
 Route::get('/api/getProvinces/{region}' , [RegionController::class , 'listProvinces']);
 
 
-Route::resource('/api/provincies' , ProvinceController::class);
+Route::resource('/api/provinces' , ProvinceController::class);
 Route::get('/api/getCommunes/{province}' , [ProvinceController::class , 'listCommunes']);
 
 Route::resource('/api/communes' , CommuneController::class);

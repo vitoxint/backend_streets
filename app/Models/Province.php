@@ -12,7 +12,8 @@ class Province extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'region_id'
     ];
 
     protected $hidden = [
@@ -34,7 +35,10 @@ class Province extends Model
     public function delete()
     {
         // Eliminar todas las comunas relacionadas
-        $this->communes()->delete();
+        $this->communes()->each(function ($commune) {
+            $commune->delete();
+        });
+
         
         // Luego eliminar la comuna
         return parent::delete();

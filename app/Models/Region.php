@@ -28,7 +28,10 @@ class Region extends Model
     public function delete()
     {
         // Eliminar todas las provincias relacionadas
-        $this->provinces()->delete();
+        $this->provinces()->each(function ($province) {
+            $province->delete();
+        });
+
         
         // Luego eliminar la región
         return parent::delete();

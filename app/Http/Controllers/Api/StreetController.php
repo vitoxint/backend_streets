@@ -13,7 +13,7 @@ class StreetController extends Controller
      */
     public function index()
     {
-        return Street::all();
+        return Street::with(['commune.province.region'])->get();
     }
 
     /**
@@ -43,7 +43,8 @@ class StreetController extends Controller
      */
     public function show(Street $street)
     {
-        return Street::find( $street );
+        //return Street::with(['commune.province.region'])->find( $street );
+        return Street::where('id', $street->id)->with(['commune.province.region'])->first();
     }
 
     /**
@@ -51,7 +52,7 @@ class StreetController extends Controller
      */
     public function edit(Street $street)
     {
-        return Street::find( $street );
+        return Street::where('id', $street->id)->with(['commune.province.region'])->first();
     }
 
     /**
@@ -91,12 +92,12 @@ class StreetController extends Controller
 
 
 
-        if ($streets->isEmpty()) {
-            return response()->json(['message' => 'No se encotraron coincidencias'], 404);
-        }
+        //if ($streets->isEmpty()) {
+        //    return response()->json(['message' => 'No se encotraron coincidencias'], 404);
+        //}
 
         // Preparar los datos para la respuesta
-        $data = $streets->map(function ($street) {
+        /* $data = $streets->map(function ($street) {
             return [
                 'id' => $street->id,
                 'street_name' => $street->name,
@@ -104,10 +105,10 @@ class StreetController extends Controller
                 'province_name' => $street->commune->province->name,
                 'region_name' => $street->commune->province->region->name,
             ];
-        });
+        }); */
 
         // Retornar los datos como respuesta JSON
-        return response()->json($data);
+        return response()->json($streets);
 
     }
 

@@ -43,7 +43,7 @@ class CommuneController extends Controller
      */
     public function show(Commune $commune)
     {
-        return Commune::find( $commune );
+        return Commune::with(['province.region'])->find( $commune );
     }
 
     /**
@@ -77,6 +77,6 @@ class CommuneController extends Controller
     public function listStreets( Commune $commune )
     {
 
-        return response()->json($commune->streets, 200);
+        return response()->json($commune->streets()->with('commune.province.region')->get(), 200);
     }
 }

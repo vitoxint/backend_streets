@@ -11,7 +11,8 @@ class Street extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'commune_id'
     ];
 
     protected $hidden = [

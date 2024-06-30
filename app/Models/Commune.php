@@ -13,7 +13,8 @@ class Commune extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'province_id'
     ];
 
     protected $hidden = [
@@ -35,7 +36,10 @@ class Commune extends Model
     public function delete()
     {
         // Eliminar todas las calles relacionadas
-        $this->streets()->delete();
+        $this->streets()->each(function ($street) {
+            $street->delete();
+        });
+
         
         // Luego eliminar la calle
         return parent::delete();
