@@ -16,7 +16,7 @@
 
 ```sh
 git clone https://github.com/vitoxnt/backend_streets.git
-cd rebits-test
+cd backend_streets
 ```
 ### Instalar dependencias de php
 
@@ -67,6 +67,7 @@ php artisan db:seed
 php artisan serve
 
 ```
+- La aplicación se ejecutará en : http://localhost:8000
 
 ## Usuario por defecto (Admin)
 
